@@ -1,17 +1,3 @@
-**NOTE:** For this development use only PHP 7.4.3, do not use any library or any framework only PHP Object-Oriented Programming because the idea is that they can evaluate my use of the language without any Framework, which facilitates the development.
-
-Thanks a lot!
-
-# use mode
-
-chmod 777 -R to Files folder.
-
-php generator.php <year>
-
-Example:
-
-php generator.php 2022
-
 # The assignment (max 1h30): Salary Payment Date tool
 
 This assignment gives us a good understanding about the thought-process and the capabilities of the developer. This doesn’t have to be a rock-solid, highly scalable super fancy production-ready application, but just something that allows us to get an idea of the developer's skills and level.

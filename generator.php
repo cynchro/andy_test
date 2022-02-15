@@ -9,5 +9,3 @@ use Validations\Validate;
 $calculate = new CalculatorController(Validate::Year($argv[1]));
 $calculate->GenerateData();
 $calculate->CreateCsv();
-
-

@@ -14,7 +14,7 @@ class CalculatorController
     public function PaySalary($date)
     {
         $lastDay = date('Y-m-d', strtotime(date('Y-m-1', strtotime($date . 'next month')) . '-1 day'));
-
+        
         $date = strtotime($lastDay);
         $date = date("l", $date);
         $date = strtolower($date);
@@ -76,7 +76,6 @@ class CalculatorController
         foreach ($this->RemainingMonths() as $m) {
 
             $fecha = DateTime::createFromFormat('!m', $m['month']);
-
             $calendarData[] = array(
                 $i++, $fecha->format('F'), $this->PaySalary($this->_year . '-' . $m['month'] . '-' . 1), // 1 = month start day
                 $this->PayBonus($this->_year . '-' . $m['month'] . '-' . 15) // 15 = bonus pay day
@@ -90,11 +89,7 @@ class CalculatorController
     public function CreateCsv()
     {
 
-        $list = array(
-            $this->GenerateData()
-        );
-
-        $fp = fopen('./Files/' . $this->_year . '_file.csv', 'w');
+        $fp = fopen('./Files/' . $this->_year . '_file.csv', 'w') or die("Unable to open file!");
         fputcsv($fp, array('ID', 'Month', 'Salary_Pay_Date', 'Bonus_Pay_Date'));
 
         foreach ($this->GenerateData() as $fields) {
@@ -106,4 +101,5 @@ class CalculatorController
         echo 'File generated!';
         die;
     }
+
 }
